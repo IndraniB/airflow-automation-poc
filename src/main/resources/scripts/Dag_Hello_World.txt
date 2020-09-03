@@ -1,0 +1,16 @@
+from datetime import datetime
+from airflow import DAG
+from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.python_operator import PythonOperator
+
+def print_hello():
+    return 'Hello world!'
+
+dag = DAG('+AirflowVariable.dagName+', 
+		  description='+AirflowVariable.dagDesc+',
+          schedule_interval='+AirflowVariable.scheduleInterval+',
+          start_date=datetime(2017, 3, 20), catchup=False)
+
+<< ADD TASKS HERE >>
+
+<< ADD TASKS PRIORITY HERE >>

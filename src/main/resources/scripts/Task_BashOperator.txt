@@ -1,0 +1,6 @@
++AirflowVariable.task_name+=
++AirflowVariable.operatorType+(
+    task_id=+AirflowVariable.task_id+',
+    bash_command='cd /home/dmaas/mywork/flink-1.11.1;bin/flink run ../myapps/airflow-flink-1.0-SNAPSHOT.jar --input s3://airflow-output/'+filename+'  --output s3://airflow-output/exchange_rate_$(date +"%Y-%m-%d-%I:%M:%p").txt;cd /home/dmaas/singerwd/files;rm *.csv',
+    retries=+AirflowVariable.retries+,
+    dag=+AirflowVariable.dag+)    
